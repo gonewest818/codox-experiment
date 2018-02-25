@@ -5,5 +5,5 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]]
   :plugins [[lein-codox "0.10.3"]]
-  :codox {:output-path "gh-pages"
+  :codox {:output-path #=(eval (str "gh-pages/" (or (System/getenv "DOC_VERSION") "master")))
           :source-uri "https://github.com/gonewest818/codox-experiment/blob/master/{filepath}#L{line}"})

@@ -72,6 +72,20 @@ Now update the documentation
 30. (Still in the `gh-pages` submodule) stage, commit and push
 31. `cd ..` and then stage, commit and push
 
+Now to have multiple versions of the documentation we can use an
+environment variable. Other mechanisms in CI can set that variable
+based on release processes (tags on git, etc).
+
+32. edit `project.clj`
+
+``` clojure
+  :codox {:output-path #=(eval (str "gh-pages/" (or (System/getenv "DOC_VERSION") "master")))
+          :source-uri "https://github.com/gonewest818/codox-experiment/blob/master/{filepath}#L{line}"}
+```
+
+33. `mkdir gh-pages/master; mv gh-pages/* gh-pages/master/.`
+34. `cd gh-pages` and stage, commit and push
+35. `cd ..` and stage, commit and push
 
 ## License
 
