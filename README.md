@@ -62,7 +62,15 @@ Next, generate documentation into the submodule.
 23. `cd gh-pages` and `git commit` and `git push origin gh-pages`
 24. `cd ..` and stage, commit, and push
 
+Now update the documentation
 
+25. edit `src/codox-experiment/core.clj` and add a function including a docstring.
+26. `lein codox`
+27. Note: `git status` shows the modified source file *and* a modified `gh-pages` submodule.
+28. `cd gh-pages`
+29. Note: `git status` shows some modified html pages.
+30. (Still in the `gh-pages` submodule) stage, commit and push
+31. `cd ..` and then stage, commit and push
 
 
 ## License

@@ -5,6 +5,11 @@
   [y]
   (println "hello, " y))
 
+(defn baz
+  "I am yet another function"
+  [y]
+  (println "yo! " y))
+
 (defn foo
   "I don't do a whole lot."
   [x]
