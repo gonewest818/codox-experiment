@@ -43,13 +43,25 @@ websites.
 17. create a file named `README.codox` with contents "This is `gh-pages`, the codox documentation branch."
 18. `git add .` and `git commit -m "initial gh-pages branch"` and `git push -u origin gh-pages`
 
-Now we have a second branch `gh-pages` with no parent, no history, and a single text file.
+Now we have a second branch `gh-pages` with no parent, no history, and
+a single text file.
 
 19. `cd ..`
 20. Note: `git status` says "On branch master" and a modified file `gh-pages` which represents the fact we've changed the state of the submodule.
 21. stage, commit, and push to master
 
-Now we have updated the master branch with an updated submodule.
+Now we have updated the master branch with an updated submodule. In my
+experiments I noticed GitHub automatically recognized the `gh-pages`
+branch and enabled GitHub pages publishing from that branch. However,
+when I browse to https://gonewest818.github.io/codox-experiment/ I get
+a 404 error because there is no `index.html` on the branch.
+
+Next, generate documentation into the submodule.
+
+22. `lein codox` to generate a set of docs
+23. `cd gh-pages` and `git commit` and `git push origin gh-pages`
+24. `cd ..` and stage, commit, and push
+
 
 
 
