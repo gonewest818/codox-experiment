@@ -17,7 +17,9 @@ elif [ "$sm" == "-" ]; then
 fi
 
 # checkout gh-pages branch
-(cd gh-pages; git checkout gh-pages; git status)
+cd gh-pages && \
+    git checkout gh-pages && \
+    git status || exit 1
 
 # update docs and confirm status
 lein codox
@@ -25,4 +27,7 @@ lein codox
 ## commmit and push
 hash=$(git rev-parse --short HEAD)
 branch=$(git rev-parse --abbrev-ref HEAD)
-(cd gh-pages; git add . &&  git commit -m "docs for commit $hash on branch $branch " || exit 1)
+cd gh-pages && \
+    git add . && \
+    git commit -m "docs for commit $hash on branch $branch " && \
+    git push origin gh-pages || exit 1
