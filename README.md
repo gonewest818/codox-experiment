@@ -79,8 +79,13 @@ based on release processes (tags on git, etc).
 32. edit `project.clj`
 
 ``` clojure
-  :codox {:output-path #=(eval (str "gh-pages/" (or (System/getenv "DOC_VERSION") "master")))
-          :source-uri "https://github.com/gonewest818/codox-experiment/blob/master/{filepath}#L{line}"}
+:codox #=(eval (let [repo   (or (System/getenv "REPO_SLUG")
+                                "gonewest818/codox-experiment")
+                     branch (or (System/getenv "GIT_BRANCH")
+                                "master")]
+                 {:output-path (str "gh-pages/" branch)
+                  :source-url  (format "https://github.com/%s/blob/%s/{filepath}#L{line}"
+                                       repo branch)}))
 ```
 
 33. `mkdir gh-pages/master; mv gh-pages/* gh-pages/master/.`
