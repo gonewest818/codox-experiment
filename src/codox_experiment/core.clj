@@ -5,6 +5,11 @@
   [y]
   (println "hello, " y))
 
+(defn baz
+  "I am another function"
+  [y]
+  (println "greetings, " y))
+
 (defn quux
   "I am yet another function"
   [y]
